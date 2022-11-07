@@ -12,7 +12,7 @@ Code used to determine the relative positions of two ring-like structures (no ci
 </ol>
         
 This code  has been implemented to determine the relative positions of ESCRT-III proteins during cell division in the archaea <i>Sulfolobus acidocaldarius</i>:<br>
-Hurtig, F., Burgers, T.C.Q., Cezanne, A., Jiang, X., Mol, F.N., Traparić, J., Tarrason-Risa, G., Pulschen, A.A., Harker-Kirschneck, L, Šarić, A.,<br> Vlijm, R. & Baum, B.<br>
+Hurtig, F., Burgers, T.C.Q., Cezanne, A., Jiang, X., Mol, F.N., Traparić, J., Tarrason-Risa, G., Pulschen, A.A., Harker-Kirschneck, L, Šarić, A., Vlijm, R. & Baum, B.<br>
 <i>The patterned assembly and stepwise Vps4-mediated disassembly
 of composite ESCRT-III polymers drives archaeal cell division.</i><br>
 BioRxiv (2022) <a href="https://doi.org:10.1101/2022.09.16.508273">https://doi.org:10.1101/2022.09.16.508273</a><br>
