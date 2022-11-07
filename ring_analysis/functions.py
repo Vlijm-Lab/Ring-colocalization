@@ -439,7 +439,18 @@ def peak2peak(parameters, line_profiles):
     line1, line2 = line_profiles
     acc = 100
     ip_pres = parameters.pixel_size * acc
-          
+    
+    
+    col1 = parameters.color1
+    col2 = parameters.color2
+
+    if parameters.top_layer_dominant:
+        lab1 = parameters.channel1        
+        lab2 = parameters.channel2
+    else:
+        lab1 = parameters.channel2        
+        lab2 = parameters.channel1
+        
     #Calculate the interpolated line profile, using cubic interpolation
     f1n = interp1d(np.array(range(len(line1))), line1, kind='cubic')
     f2n = interp1d(np.array(range(len(line2))), line2, kind='cubic')
@@ -453,29 +464,30 @@ def peak2peak(parameters, line_profiles):
     ax2 = ax1.twinx()
     
     #Bar plots of original data
-    ax1.bar(x_orig, line1, color = parameters.color1, alpha = 0.1)
+    ax1.bar(x_orig, line1, color = col1, alpha = 0.1)
     ax1.set_ylim(bottom = 0)
-    ax2.bar(x_orig, line2, color = parameters.color2, alpha = 0.1)
+    ax2.bar(x_orig, line2, color = col2, alpha = 0.1)
     ax2.set_ylim(bottom = 0)
     
     #Interpolated lines
-    interpolated_line1 = ax1.plot(xnew, f1n(xnew), parameters.color1, label = parameters.channel1)
-    interpolated_line2 = ax2.plot(xnew, f2n(xnew), parameters.color2, label = parameters.channel2)
+    interpolated_line1 = ax1.plot(xnew, f1n(xnew), col1, label = lab1)
+    interpolated_line2 = ax2.plot(xnew, f2n(xnew), col2, label = lab2)
+    
     
     #Peak locations
-    ax1.axvline(np.argmax(f1n(xnew)) / ip_pres, color=parameters.color1, linestyle='--')
-    ax2.axvline(np.argmax(f2n(xnew)) / ip_pres, color=parameters.color2, linestyle='--')
+    ax1.axvline(np.argmax(f1n(xnew)) / ip_pres, color=col1, linestyle='--')
+    ax2.axvline(np.argmax(f2n(xnew)) / ip_pres, color=col2, linestyle='--')
     
     #labels & legend
     ax1.set_xlabel('nm')
-    ax1.legend(interpolated_line1 + interpolated_line2, [parameters.channel1, parameters.channel2])
+    ax1.legend(interpolated_line1 + interpolated_line2, [lab1, lab2])
     ax1.axes.yaxis.set_visible(False)
     ax2.axes.yaxis.set_visible(False)
     
     #limits
     ax1.set_xlim(0,20)    
-    ax1.tick_params(axis='y', labelcolor=parameters.color1)
-    ax2.tick_params(axis='y', labelcolor=parameters.color2)
+    ax1.tick_params(axis='y', labelcolor = col1)
+    ax2.tick_params(axis='y', labelcolor = col2)
     plt.xticks(range(0, len(line1), 2),range(-int(len(line1)*parameters.pixel_size/2), int(len(line1)*parameters.pixel_size/2),parameters.pixel_size*2))
     
     #Peak difference calculation and display

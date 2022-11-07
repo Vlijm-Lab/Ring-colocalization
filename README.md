@@ -29,3 +29,4 @@ BioRxiv (2022) <a href="https://doi.org:10.1101/2022.09.16.508273">https://doi.o
 `ring_analysis/parameters.py` is the Python 3.x file which contains the parameters. Adjust this file conform the used data.<br>
 `data` is the folder in which all data which needs to be analyzed must be stored. <br>
 The images need to be of `.tiff` format, consisting two layers of images (i.e. (2, ..., ...) dimension images).
+The example image used (which can be found in `data`) is an image from the above mentioned study. The example image is a 16bit `.tiff` file containing CdvB in the first channel and CdvB1 in the second channel. No adjustments have to be made to use other bit sized `.tiff` data.
