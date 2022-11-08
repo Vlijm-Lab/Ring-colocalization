@@ -1,4 +1,4 @@
-<b>Analysis of dual-color STED images.</b><br>
+<b>Analysis of dual-color images of ring-like structures.</b><br>
 
 Code used to determine the relative positions of two ring-like structures (no circle-fitting involved).<br><br>
 <b>Method: </b>
